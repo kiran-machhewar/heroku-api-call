@@ -1,5 +1,6 @@
 package servlet;
 
+import java.io.BufferedReader;
 import java.io.IOException;
 
 import javax.servlet.ServletException;
@@ -31,8 +32,22 @@ public class HelloServlet extends HttpServlet {
     
     public void handleRequest(HttpServletRequest req, HttpServletResponse resp)
     		throws ServletException, IOException{
+    	 String line = null;
+    	 StringBuffer jb = new StringBuffer();    	 
+    	 BufferedReader reader = req.getReader();
+    	    while ((line = reader.readLine()) != null)
+    	      jb.append(line);    	 
     	 ServletOutputStream out = resp.getOutputStream();
-         out.write(("200 GET OK Kiran Machhewar\n ").getBytes());
+    	// Build a response
+    	 String msg;
+    	     msg = "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\">";
+    	     msg += "<soapenv:Body>";
+    	     msg += "<notificationsResponse xmlns=\"http://soap.sforce.com/2005/09/outbound\">";
+    	     msg += "<Ack>true</Ack>";
+    	     msg += "</notificationsResponse>";
+    	     msg += "</soapenv:Body>";
+    	     msg += "</soapenv:Envelope>";    	 
+         out.write((msg).getBytes());
          out.flush();  
          out.close();
     }
