@@ -28,7 +28,7 @@ import myjarpackage.MyJarService;
         name = "MyServlet", 
         urlPatterns = {"/api-call"}
     )
-public class HelloServlet extends HttpServlet {
+public class APICallServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
@@ -151,7 +151,7 @@ public class HelloServlet extends HttpServlet {
     	
     	//new HelloServlet().ackowledgeSalesforce("https://ap2.salesforce.com/services/data/v20.0/sobjects/API_Call__c/a0O28000006pq3QEAQ","00D28000001i5TN!ARoAQMf2Umi5xM3xnmdaspxI0ZK3HBaYwWBP6pL6HBMSXIQEnDs5tBiqB3dgR.Vrv0znkq0zhcw10IkH57k9P3U5eZAhs2ZF");
     	 
-    	 APICall apiCall = new HelloServlet().parseRequestXML("<?xml version=\"1.0\" encoding=\"UTF-8\"?><soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"> <soapenv:Body>  <notifications xmlns=\"http://soap.sforce.com/2005/09/outbound\">   <OrganizationId>00D28000001i5TNEAY</OrganizationId>   <ActionId>04k28000000XZXsAAO</ActionId>   <SessionId>00D28000001i5TN!ARoAQMf2Umi5xM3xnmdaspxI0ZK3HBaYwWBP6pL6HBMSXIQEnDs5tBiqB3dgR.Vrv0znkq0zhcw10IkH57k9P3U5eZAhs2ZF</SessionId>   <EnterpriseUrl>https://ap2.salesforce.com/services/Soap/c/39.0/00D28000001i5TN</EnterpriseUrl>   <PartnerUrl>https://ap2.salesforce.com/services/Soap/u/39.0/00D28000001i5TN</PartnerUrl>   <Notification>    <Id>04l28000007DCRXAA4</Id>    <sObject xsi:type=\"sf:API_Call__c\" xmlns:sf=\"urn:sobject.enterprise.soap.sforce.com\">     <sf:Id>a0O28000006pq3QEAQ</sf:Id>     <sf:Request__c>This is going to be the request Salesforce</sf:Request__c>    </sObject>   </Notification>  </notifications> </soapenv:Body></soapenv:Envelope>");
+    	 APICall apiCall = new APICallServlet().parseRequestXML("<?xml version=\"1.0\" encoding=\"UTF-8\"?><soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"> <soapenv:Body>  <notifications xmlns=\"http://soap.sforce.com/2005/09/outbound\">   <OrganizationId>00D28000001i5TNEAY</OrganizationId>   <ActionId>04k28000000XZXsAAO</ActionId>   <SessionId>00D28000001i5TN!ARoAQMf2Umi5xM3xnmdaspxI0ZK3HBaYwWBP6pL6HBMSXIQEnDs5tBiqB3dgR.Vrv0znkq0zhcw10IkH57k9P3U5eZAhs2ZF</SessionId>   <EnterpriseUrl>https://ap2.salesforce.com/services/Soap/c/39.0/00D28000001i5TN</EnterpriseUrl>   <PartnerUrl>https://ap2.salesforce.com/services/Soap/u/39.0/00D28000001i5TN</PartnerUrl>   <Notification>    <Id>04l28000007DCRXAA4</Id>    <sObject xsi:type=\"sf:API_Call__c\" xmlns:sf=\"urn:sobject.enterprise.soap.sforce.com\">     <sf:Id>a0O28000006pq3QEAQ</sf:Id>     <sf:Request__c>This is going to be the request Salesforce</sf:Request__c>    </sObject>   </Notification>  </notifications> </soapenv:Body></soapenv:Envelope>");
     	System.out.println(apiCall);
 	}
     
