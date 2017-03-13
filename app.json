@@ -1,0 +1,10 @@
+{
+  "name": "JavaWebAppTemplateHeroku",
+  "description": "JavaWebAppTemplateHeroku as a template for any webapp java project.",
+  "repository": "https://github.com/kiran-machhewar/JavaWebAppTemplateHeroku.git",
+  "logo": "https://upload.wikimedia.org/wikipedia/commons/7/7b/Tomcat-logo.svg",
+  "keywords": [
+    "java",
+    "tomcat"
+  ]
+}
