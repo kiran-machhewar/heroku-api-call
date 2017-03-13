@@ -33,15 +33,11 @@ public class APICallServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
-    	try {
-			handleRequest(req,resp);
-		} catch (ParserConfigurationException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (SAXException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+    	 ServletOutputStream out = resp.getOutputStream();
+         String outputFromJar = MyJarService.getOutputFromJar();
+         out.write(("OK Kiran\n "+outputFromJar).getBytes());
+         out.flush();
+         out.close();
     }
     
     @Override
