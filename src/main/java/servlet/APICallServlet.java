@@ -34,8 +34,7 @@ public class APICallServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
     	 ServletOutputStream out = resp.getOutputStream();
-         String outputFromJar = MyJarService.getOutputFromJar();
-         out.write(("OK Kiran\n "+outputFromJar).getBytes());
+         out.write(("OK Kiran\n ").getBytes());
          out.flush();
          out.close();
     }
