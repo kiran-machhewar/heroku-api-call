@@ -13,18 +13,28 @@ import myjarpackage.MyJarService;
 
 @WebServlet(
         name = "MyServlet", 
-        urlPatterns = {"/hello"}
+        urlPatterns = {"/api-call"}
     )
 public class HelloServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
-        ServletOutputStream out = resp.getOutputStream();
-        String outputFromJar = MyJarService.getOutputFromJar();
-        out.write(("Kiran Machhewar\n "+outputFromJar).getBytes());
-        out.flush();
-        out.close();
+    	handleRequest(req,resp);
+    }
+    
+    @Override
+    public void doPost(HttpServletRequest req, HttpServletResponse resp)
+    		throws ServletException, IOException {
+    	 handleRequest(req,resp);
+    }
+    
+    public void handleRequest(HttpServletRequest req, HttpServletResponse resp)
+    		throws ServletException, IOException{
+    	 ServletOutputStream out = resp.getOutputStream();
+         out.write(("200 GET OK Kiran Machhewar\n ").getBytes());
+         out.flush();  
+         out.close();
     }
     
 }
