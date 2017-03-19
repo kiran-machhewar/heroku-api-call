@@ -49,9 +49,12 @@ public class OutboundMessageParser {
 			APICall apiCall = new APICall();
 			Node item = notifications.item(i);
 		    Document ownerDocument = item.getOwnerDocument();			
-			apiCall.setApiCallRecordId(ownerDocument.getElementsByTagName("sf:Id").item(i).getTextContent());
+			apiCall.setApiCallRecordId(ownerDocument.getElementsByTagName("sf:Id").item(i).getTextContent());			
 			apiCall.setEndpoint(ownerDocument.getElementsByTagName("sf:Endpoint__c").item(i).getTextContent());
-			apiCall.setRequest(ownerDocument.getElementsByTagName("sf:Request__c").item(i).getTextContent());
+			if(ownerDocument.getElementsByTagName("sf:Request__c") != null &&
+					ownerDocument.getElementsByTagName("sf:Request__c").getLength() > i ){
+				apiCall.setRequest(ownerDocument.getElementsByTagName("sf:Request__c").item(i).getTextContent());				
+			}
 			outboundMessage.apiCalls.add(apiCall);			
 		}
 		
