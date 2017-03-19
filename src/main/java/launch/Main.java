@@ -44,9 +44,9 @@ public class Main {
         
         //The port that we should run on can be set into an environment variable
         //Look for that variable and default to 8080 if it isn't there.
-        String webPort = System.getenv("PORT");
+        String webPort = System.getenv("PORT");        
         if (webPort == null || webPort.isEmpty()) {
-            webPort = "8082";
+            webPort = "9999";
         }
 
         tomcat.setPort(Integer.valueOf(webPort));
